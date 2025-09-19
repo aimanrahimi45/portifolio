@@ -38,7 +38,7 @@
 .pc-card-wrapper::before {
   content: '';
   position: absolute;
-  inset: -10px;
+  inset: -10px -10px -200px -10px;
   background: inherit;
   background-position: inherit;
   border-radius: inherit;
@@ -61,7 +61,7 @@
 }
 
 .pc-card {
-  height: 80svh;
+  height: 100svh;
   max-height: 540px;
   display: grid;
   aspect-ratio: 0.718;
