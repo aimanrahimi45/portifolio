@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Aurora from './Aurora';
+import ShinyText from './ShinyText';
+import ProfileCard from './ProfileCard';
 
 export default function Hero() {
   const [isMounted, setIsMounted] = useState(false);
@@ -18,7 +20,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
       <Aurora className="z-0" />
       <div className="container mx-auto px-6 py-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -28,10 +30,10 @@ export default function Hero() {
               isMounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4">
-                John <span className="text-blue-600 dark:text-blue-400">Doe</span>
+                <ShinyText text="John Doe" speed={4} className="text-blue-600 dark:text-blue-400" />
               </h1>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-600 dark:text-gray-300 mb-6">
-                Full Stack Developer
+                <ShinyText text="Full Stack Developer" speed={3} />
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl">
                 Passionate about creating innovative web solutions that make a difference. 
@@ -64,13 +66,20 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Profile Image Placeholder */}
+          {/* Profile Card */}
           <div className={`flex-1 flex justify-center lg:justify-end transition-all duration-1000 ease-out delay-500 transform ${
             isMounted ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'
           }`}>
-            <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-2xl">
-              <div className="text-white text-6xl font-bold">JD</div>
-            </div>
+            <ProfileCard
+              avatarUrl="/your-avatar-image.jpg"
+              name="John Doe"
+              title="Full Stack Developer"
+              handle="johndoe"
+              status="Available for work"
+              contactText="Hire Me"
+              onContactClick={() => scrollToSection('contact')}
+              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
+            />
           </div>
         </div>
 
